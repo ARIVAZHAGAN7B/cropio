@@ -9,7 +9,6 @@ import SustainableDashboard from '../Panels/Farmer/Sustainablity/SustainableDash
 const FarmerRoutes = () => {
   return (
     <div>
-      <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/dieseasedetection' element={<DiseaseDetection/>}/>
@@ -18,7 +17,6 @@ const FarmerRoutes = () => {
         <Route path='/sustainable' element={<SustainableTips/>}/>
         <Route path='/dashboard' element={<SustainableDashboard/>}/>
       </Routes>
-      </BrowserRouter>
     </div>
   )
 }

@@ -22,11 +22,14 @@ import LoginForm from './Pages/Login'
 import RegisterForm from './Pages/Register'
 import FarmerRoutes from './PublicRoutes/FarmerRoutes'
 import Navbar from './Components/Navbar/Navbar'
+import { BrowserRouter } from 'react-router-dom'
 const App = () => {
   return (
     <div>
+      <BrowserRouter>
       <Navbar/>
       <FarmerRoutes/>
+      </BrowserRouter>
     </div>
   )
 }
