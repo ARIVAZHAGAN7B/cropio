@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import React from 'react'
+import ChatbotWidget from "./Shared/Chatbot/ChatbotWidget"
+import Home from './Pages/Home'
+import DiesaseDetection from './Panels/Farmer/DiseasePrediction/DiseaseDetection'
+import CropRecommendation from './Panels/Farmer/CropRecommendation'
+import CultivationGuide from './Panels/Farmer/CultivationGuide'
+import SustainableTips from './Panels/Farmer/SustainableTips'
+import SoilHealthMonitor from './Panels/Farmer/SoilHealthMonitor'
+import YieldEstimator from './Panels/Farmer/YieldEstimator'
+import InsuranceLoans from './Panels/Farmer/InsuranceLoans'
+import CommunityForum from './Panels/Farmer/CommunityForum'
+import MarketplaceAccess from './Panels/Farmer/Market/MarketplaceAccess'
+import DemandSupplyDashboard from './Panels/Dealer/DemandSupplyDashboard'
+import SmartPurchase from './Panels/Dealer/SmartPurchase'
+import PriceForecast from './Panels/Dealer/PriceForecast'
+import FarmerConnect from './Panels/Dealer/FarmerConnect'
+import LogisticsIntegration from './Panels/Dealer/LogisticsIntegration'
+import LanguageSelection from './Pages/LanguageSelection'
+import SustainableDashboard from './Panels/Farmer/SustainableDashboard'
+import News from './Panels/Dealer/News'
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <LanguageSelection/>
+      <Home/> 
+      <SustainableDashboard/>
+      <News/>
+    </div>
   )
 }
 
