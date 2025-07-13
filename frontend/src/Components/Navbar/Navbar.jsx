@@ -18,7 +18,7 @@ const Navbar = () => {
       <path d="M32 36 C44 30, 44 24, 32 18" stroke="currentColor" strokeWidth="2" fill="none"/>
     </svg>
   </div>
-  <h2 className="text-2xl font-bold text-green-700">AgriWise</h2>
+  <h2 className="text-2xl font-bold text-green-700">Cropio</h2>
 </div>
 
 
