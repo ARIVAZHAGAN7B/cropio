@@ -80,7 +80,19 @@ const Home = () => {
               <div className="bg-white p-4 rounded shadow">🌍 Eco-Friendly Pest Control</div>
             </div>
           </section>
-
+          <section>
+            <h2 className="text-2xl font-bold mb-6">Our Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+              <div className="bg-white p-4 rounded shadow">🌍 News</div>
+              <div className="bg-white p-4 rounded shadow">🫂 Community</div>
+              <div className="bg-white p-4 rounded shadow">💹 Market</div>
+              <div className="bg-white p-4 rounded shadow">📃 Govt. Subsidy</div>
+              <div className="bg-white p-4 rounded shadow">🌾 Yield Estimator</div>
+            </div>
+          </section>
+          <section>
+             <HomeDashboard/>
+          </section>
         </main>
       </div>
     </div>
