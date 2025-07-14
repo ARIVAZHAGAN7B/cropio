@@ -28,4 +28,4 @@ const SustainablityDashboard = () => {
   )
 }
 
-export default SustainablityDashboards
+export default SustainablityDashboard
