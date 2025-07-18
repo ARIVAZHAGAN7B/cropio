@@ -14,7 +14,7 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     hideTimeoutRef.current = setTimeout(() => {
       setShowServices(false)
-    }, 100) // 100 millisecond delay
+    }, 75) // 100 millisecond delay
   }
 
   return (
