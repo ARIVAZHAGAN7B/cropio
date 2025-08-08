@@ -9,7 +9,7 @@ const Keymetrics = () => {
   })
   useEffect(()=> {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/keymetrics",{
+      const response = await fetch("http://localhost:5000/user/sustainablity/keymetrics",{
         method: 'GET',
         headers: { 'Content-Type' : "application/json"},
         });

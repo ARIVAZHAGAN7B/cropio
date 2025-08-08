@@ -3,7 +3,7 @@ import React from "react";
 const CultivationGuide = () => {
   return (
     <div className="flex min-h-screen flex-col bg-[#fafbf9] p-6 font-[Lexend,Noto Sans,sans-serif]">
-      <div className="max-w-4xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4">
         {/* Search Bar */}
         <div className="mb-6">
           <label className="flex w-full h-12">

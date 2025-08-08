@@ -18,7 +18,7 @@ const SustainablityDashboard = () => {
                       <p className="text-[#67974e] text-base">Overall sustainability score based on your farming practices.</p>
                       <p className="text-[#67974e] text-base">Updated 2 days ago</p>
                     </div>
-                    <button className="h-8 px-4 bg-[#4ab714] rounded-full text-sm font-medium text-[#121b0e]">
+                    <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer">
                       View Details
                     </button>
                   </div>

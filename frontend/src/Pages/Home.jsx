@@ -56,7 +56,9 @@ const Home = () => {
               <div className="p-6 flex-1">
                 <h3 className="text-xl font-semibold">Early Blight Detection</h3>
                 <p className="text-gray-600 mt-2 mb-4">Identify early blight in your crops with our AI-powered tool.</p>
-                <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Detect Now</button>
+                <Link to="/dieseasedetection">
+                <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer">Detect Now</button>
+                </Link>
               </div>
               <div className="md:w-1/2 h-56 md:h-auto bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCHuqTfBWDSbwZY9MkyyRyK4y_CRvloXUy3yXGLxZd5SlC4BQWH0W823qyOR3XrKhQ3TeuG0zjFtTZHnaQaEy6ma-FRGktm9THDNzkran7ejo2N5qlq6YW0GzGy9Shsmie2pYaM1iZbdXf4qoIsMLSuRzSh1Y6OvXNDgfHIefHFYide-iO8VwdzbBAHFXpmvy3aeh_18iU6uk135SSrlsCdzV8CvVFh9gCmi_6KP4e5nuieWvRsiBJj0xBf4yLoBcqahLYoWKiDmM')" }} />
             </div>

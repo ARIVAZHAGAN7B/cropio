@@ -105,20 +105,14 @@ export default function SustainableTips() {
               AI Assistant
             </h3>
 
-            <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-              <label className="flex flex-col min-w-40 flex-1">
-                <textarea
-                  placeholder="Ask me anything about sustainable farming..."
-                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#131811] focus:outline-0 focus:ring-0 border border-[#d9e1d6] bg-[#fafbf9] focus:border-[#d9e1d6] min-h-36 placeholder:text-[#6d8560] p-[15px] text-base font-normal leading-normal"
-                />
-              </label>
-            </div>
-
-            <div className="flex px-4 py-3 justify-end">
-              <button
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#c5e0b7] text-[#131811] text-sm font-bold leading-normal tracking-[0.015em]"
-              >
-                <span className="truncate">Send</span>
+            <div className="flex w-full items-center gap-3 px-4 py-3 bg-white rounded-xl border border-[#d9e1d6]">
+              <textarea
+                placeholder="Ask me anything about sustainable farming..."
+                className="flex-1 resize-none overflow-hidden rounded-lg text-[#131811] focus:outline-none focus:ring-0 border border-transparent bg-transparent min-h-[60px] placeholder:text-[#6d8560] p-2 text-base"
+                rows={1}
+              />
+              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer">
+                Send
               </button>
             </div>
           </div>
