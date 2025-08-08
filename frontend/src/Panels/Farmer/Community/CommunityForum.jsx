@@ -160,7 +160,7 @@ export default function CommunityForum() {
                 2
               </a>
               <a
-                className="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#121b0e] rounded-full"
+                className="text-sm font-normal leading-normal flex size-10 items-center jus    tify-center text-[#121b0e] rounded-full"
                 href="#"
               >
                 3

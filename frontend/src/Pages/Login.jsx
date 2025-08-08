@@ -1,6 +1,15 @@
 import React from "react";
-
+import { useState } from "react";
+import { Link } from "react-router-dom";
 const LoginForm = () => {
+  const [user, setUser] = useState({
+    emailOrusername: "",
+    password: "",
+    rememberMe: "",
+  });
+  const handleChange = (e) => {
+    setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
   return (
     <div
       className="relative flex min-h-screen flex-col bg-[#fafbf9] overflow-x-hidden"
@@ -23,8 +32,12 @@ const LoginForm = () => {
                   Email
                 </p>
                 <input
+                  name="emailOrusername"
                   placeholder="Enter your email"
                   className="form-input w-full rounded-xl border border-[#d9e1d6] bg-[#fafbf9] p-[15px] text-base text-[#131811] placeholder-[#6d8560] focus:outline-none focus:ring-0 h-14"
+                  type="email"
+                  value={user.emailOrusername}
+                  onChange={handleChange}
                 />
               </label>
             </div>
@@ -36,20 +49,15 @@ const LoginForm = () => {
                 </p>
                 <div className="flex items-stretch w-full rounded-xl">
                   <input
-                    type="password"
+                    name="password"
                     placeholder="Enter your password"
                     className="form-input w-full flex-1 rounded-l-xl border border-[#d9e1d6] bg-[#fafbf9] p-[15px] text-base text-[#131811] placeholder-[#6d8560] focus:outline-none focus:ring-0 h-14"
+                    type="password"
+                    value={user.password}
+                    onChange={handleChange}
                   />
                   <div className="flex items-center justify-center pr-[15px] border border-[#d9e1d6] border-l-0 rounded-r-xl bg-[#fafbf9] text-[#6d8560]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      viewBox="0 0 256 256"
-                    >
-                      <path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z" />
-                    </svg>
+                    <h4>eye</h4>
                   </div>
                 </div>
               </label>
@@ -59,15 +67,20 @@ const LoginForm = () => {
               <p className="text-[#131811] text-base font-normal truncate">
                 Remember me
               </p>
+
               <input
+                name="rememberMe"
                 type="checkbox"
-                className="h-5 w-5 rounded border-[#d9e1d6] border-2 bg-transparent text-[#c5e0b7] checked:bg-[#c5e0b7] checked:border-[#c5e0b7] checked:bg-[image:var(--checkbox-tick-svg)] focus:ring-0 focus:outline-none"
+                className="h-5 w-5 rounded border-[#d9e1d6] border-2 bg-transparent text-[#c5e0b7] checked:bg-[#c5e0b7] checked:border-[#c5e0b7] checked:bg-[image:var(--checkbox-tick-svg)] focus:ring-0 focus:outline-none cursor-pointer"
+                value={user.rememberMe}
+                onChange={handleChange}
               />
             </div>
-
-            <p className="text-[#6d8560] text-sm px-4 underline pt-1 pb-3">
-              Forgot password?
-            </p>
+            <Link to="/forgotpassword">
+              <p className="text-[#6d8560] text-sm px-4 underline pt-1 pb-3">
+                Forgot password?
+              </p>
+            </Link>
 
             <div className="px-4 py-3">
               <button className="w-full h-12 rounded-full bg-[#c5e0b7] text-[#131811] text-base font-bold">

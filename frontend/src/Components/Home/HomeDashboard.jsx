@@ -7,7 +7,7 @@ export default function HomeDashboard() {
       style={{ fontFamily: "Lexend, Noto Sans, sans-serif" }}
     >
       <div className="layout-container flex h-full grow flex-col">
-        <div className="px-40 flex flex-1 justify-center py-5">
+        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
           <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
             <h2 className="text-[#121b0e] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
               Notifications

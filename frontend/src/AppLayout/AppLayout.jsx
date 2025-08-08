@@ -8,8 +8,8 @@ const AppLayout = () => {
       <div className="sticky top-0 z-50 bg-white shadow-md">
         <Navbar />
       </div>
-      <FarmerRoutes />
-       <Footer/>
+        <FarmerRoutes />
+        <Footer/>
     </>
   )
 }

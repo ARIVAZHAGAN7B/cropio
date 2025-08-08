@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import HomeDashboard from "../Components/Home/HomeDashboard";
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800">
+
         {/* Header */}
         
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="flex-1 max-w-7xl mx-auto px-4 w-full">
         <main className="mt-10 space-y-16">
 
           {/* Welcome Section */}
