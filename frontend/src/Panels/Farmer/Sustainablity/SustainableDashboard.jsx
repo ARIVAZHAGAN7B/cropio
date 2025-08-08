@@ -1,6 +1,5 @@
 import React from "react";
 import SustainablityDashboard from "../../../Components/Sustainablity/SustainablityDashboard";
-import Keymetrics from "../../../Components/Sustainablity/Keymetrics";
 import Achievements from "../../../Components/Sustainablity/Achievements";
 import WeeklyTips from "../../../Components/Sustainablity/WeeklyTips";
 import DataInput from "../../../Components/Sustainablity/DataInput";
@@ -22,7 +21,6 @@ const SustainableDashboard = () => {
             <SustainablityDashboard/>
             
             {/* Key Metrics */}
-            <Keymetrics/>
 
             {/* Achievements */}
             <Achievements/>
