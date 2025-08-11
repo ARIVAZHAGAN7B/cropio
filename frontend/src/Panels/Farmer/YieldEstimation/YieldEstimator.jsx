@@ -83,7 +83,7 @@ export default function YieldEstimator() {
             {/* Predict Button */}
             <div className="flex max-w-[480px] px-4 py-3 justify-end">
               <button
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#4ab714] text-[#121b0e] text-sm font-bold leading-normal tracking-[0.015em]"
+                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer"
                 type="button"
                 aria-label="Predict Yield"
               >

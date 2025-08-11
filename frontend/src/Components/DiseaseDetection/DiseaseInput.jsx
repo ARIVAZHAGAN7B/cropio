@@ -1,104 +1,117 @@
-import React, { useState, useRef } from 'react';
-import Webcam from 'react-webcam';
+import React, { useState } from 'react';
 
-const DiseaseInput = () => {
-  const [, setImageFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
-  const [showCamera, setShowCamera] = useState(false);
-  const webcamRef = useRef(null);
-  const fileInputRef = useRef(null);
-
-  const handleImageChange = (e) => {
+const DiseaseInput = ({ onDetectionResult }) => {
+  const [imageFile, setImageFile] = useState(null);
+  const [cropType, setCropType] = useState('');
+  const [symptoms, setSymptoms] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState('');
+  const baseUrl = import.meta.env.VITE_HOST;
+  const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    e.target.value = ''; // Reset input
-    if (file && file.type.startsWith('image/')) {
+    if (file) {
       setImageFile(file);
-      setPreviewUrl(URL.createObjectURL(file));
-    } else {
-      alert('Please select a valid image file.');
+      const url = URL.createObjectURL(file);
+      setPreviewUrl(url);
     }
   };
 
-  const handleUploadClick = () => {
-    fileInputRef.current?.click();
-  };
+  const handleDetection = async () => {
+    if (!imageFile && !symptoms) {
+      alert('Please upload an image or describe symptoms');
+      return;
+    }
 
-  const handleCapture = () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    if (imageSrc) {
-      setPreviewUrl(imageSrc);
-      setImageFile(null); // Reset file input
-      setShowCamera(false);
+    setLoading(true);
+    
+    try {
+      // In a real implementation, you'd convert the image to base64 or use FormData
+      const formData = new FormData();
+      if (imageFile) formData.append('image', imageFile);
+      formData.append('cropType', cropType);
+      formData.append('symptoms', symptoms);
+
+      const response = await fetch(`${baseUrl}/user/sustainablity/dieseased/inputdiesease`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        onDetectionResult(result.data);
+      } else {
+        alert('Detection failed: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Detection error:', error);
+      alert('Detection failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
-      <p className="text-[32px] font-bold px-4">Plant Health Detection</p>
-      <h2 className="text-[22px] font-bold px-4 pt-5 pb-3">Upload Image or Use Camera</h2>
-
-      <div className="p-4">
-        <div className="flex flex-col items-center gap-6 border-2 border-dashed border-[#d9e1d6] rounded-xl px-6 py-14">
-          <p className="text-lg font-bold text-center">Drag and drop or browse</p>
-          <p className="text-sm text-center">
-            Upload an image of the plant or use your camera to capture a live image for detection.
-          </p>
-
+    <div className="p-6 bg-white rounded-xl shadow-lg">
+      <h2 className="text-xl font-bold text-[#131811] mb-4">Disease Detection</h2>
+      
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-[#131811] mb-2">
+            Upload Plant Image
+          </label>
           <input
             type="file"
             accept="image/*"
-            capture="environment"
-            className="hidden"
-            ref={fileInputRef}
-            onChange={handleImageChange}
+            onChange={handleImageUpload}
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
           />
-          <button
-            onClick={handleUploadClick}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer"
-          >
-            Upload Image
-          </button>
-          
           {previewUrl && (
-            <div className="mt-4">
-              <img src={previewUrl} alt="Preview" className="max-w-xs rounded shadow" />
-            </div>
+            <img src={previewUrl} alt="Preview" className="mt-2 max-w-xs rounded-lg" />
           )}
         </div>
-      </div>
 
-      <div className="px-4 py-3 flex gap-4 justify-around">
-        <button
-          onClick={() => setShowCamera(!showCamera)}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer"
-        >
-          {showCamera ? 'Close Camera' : 'Use Camera'}
-        </button>
-
-        {showCamera && (
-          <button
-            onClick={handleCapture}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
+        <div>
+          <label className="block text-sm font-medium text-[#131811] mb-2">
+            Crop Type
+          </label>
+          <select
+            value={cropType}
+            onChange={(e) => setCropType(e.target.value)}
+            className="w-full p-3 rounded-lg bg-[#ecf0ea] text-[#131811] focus:outline-none"
           >
-            Capture Photo
-          </button>
-        )}
-        <button className='bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer'>Get Detection Result</button>
-      </div>
+            <option value="">Select crop type</option>
+            <option value="corn">Corn</option>
+            <option value="wheat">Wheat</option>
+            <option value="rice">Rice</option>
+            <option value="tomato">Tomato</option>
+          </select>
+        </div>
 
-      {showCamera && (
-        <div className="p-4 flex justify-center">
-          <Webcam
-            audio={false}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            className="rounded shadow max-w-sm"
-            videoConstraints={{
-              facingMode: 'environment', // Use back camera on mobile
-            }}
+        <div>
+          <label className="block text-sm font-medium text-[#131811] mb-2">
+            Describe Symptoms (Optional)
+          </label>
+          <textarea
+            value={symptoms}
+            onChange={(e) => setSymptoms(e.target.value)}
+            placeholder="Describe visible symptoms like discoloration, spots, wilting, etc."
+            className="w-full p-3 rounded-lg bg-[#ecf0ea] text-[#131811] focus:outline-none h-24 resize-none"
           />
         </div>
-      )}
+
+        <button
+          onClick={handleDetection}
+          disabled={loading}
+          className={`w-full py-3 rounded-lg text-white font-medium ${
+            loading 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-green-600 hover:bg-green-700'
+          }`}
+        >
+          {loading ? 'Analyzing...' : 'Detect Disease'}
+        </button>
+      </div>
     </div>
   );
 };

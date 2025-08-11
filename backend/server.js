@@ -1,14 +1,18 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
 
-const app = express(); // Initialize Express app
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(cors()); // Enable CORS
-app.use(express.json()); // Parse JSON request bodies
-const FarmerRoutes = require("./Routes/FarmerRoutes");
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-app.use("/user",FarmerRoutes);
+// Routes
+const sustainabilityRoutes = require('./Routes/FarmerRoutes');
+app.use('/user/sustainablity', sustainabilityRoutes);
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

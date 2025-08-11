@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const LoginForm = () => {
+  localStorage.setItem("loggedIn", false);
   const [user, setUser] = useState({
     emailOrusername: "",
     password: "",
@@ -9,6 +10,11 @@ const LoginForm = () => {
   });
   const handleChange = (e) => {
     setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleClick = () => {
+    localStorage.setItem("loggedIn", "true");
+    window.dispatchEvent(new Event("loggedInChanged"));
   };
   return (
     <div
@@ -83,7 +89,10 @@ const LoginForm = () => {
             </Link>
 
             <div className="px-4 py-3">
-              <button className="w-full h-12 rounded-full bg-[#c5e0b7] text-[#131811] text-base font-bold">
+              <button
+                className="w-full h-12 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer font-bold"
+                onClick={handleClick}
+              >
                 Log in
               </button>
             </div>

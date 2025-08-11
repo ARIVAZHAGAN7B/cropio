@@ -119,7 +119,7 @@ const News = () => {
 
           {/* Button */}
           <div className="flex justify-end px-4">
-            <button className="rounded-full h-10 px-4 bg-[#ebf3e7] text-sm font-bold text-[#121b0e]">
+            <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer">
               Get Push Notifications
             </button>
           </div>

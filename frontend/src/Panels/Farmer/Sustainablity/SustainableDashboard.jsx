@@ -1,10 +1,9 @@
 import React from "react";
-import SustainablityDashboard from "../../../Components/Sustainablity/SustainablityDashboard";
+import SustainabilityDashboard from "../../../Components/Sustainablity/SustainablityDashboard";
+import KeyMetrics from "../../../Components/Sustainablity/KeyMetrics";
 import Achievements from "../../../Components/Sustainablity/Achievements";
 import WeeklyTips from "../../../Components/Sustainablity/WeeklyTips";
 import DataInput from "../../../Components/Sustainablity/DataInput";
-import KeyMetics from "../../../Components/Sustainablity/KeyMetrics";
-
 const SustainableDashboard = () => {
   return (
     <div
@@ -13,7 +12,7 @@ const SustainableDashboard = () => {
     >
       <div className="flex-1 w-full">
         <div className="flex flex-1 justify-center py-5 w-full">
-          <div className="flex flex-col w-full flex-1">
+          <div className="flex flex-col w-full flex-1 max-w-7xl">
             <div className="p-4">
               <p className="text-[32px] font-bold leading-tight">
                 Sustainability Dashboard
@@ -21,10 +20,10 @@ const SustainableDashboard = () => {
             </div>
 
             {/* Sustainability Score Card */}
-            <SustainablityDashboard />
+            <SustainabilityDashboard />
 
             {/* Key Metrics */}
-            <KeyMetics />
+            <KeyMetrics />
 
             {/* Achievements */}
             <Achievements />

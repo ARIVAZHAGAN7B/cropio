@@ -30,7 +30,7 @@ const Schemes = require("../Services/Farmer/News/Schemes");
 const SustainablePractices = require("../Services/Farmer/SustainalbeAgriculture/SustainablePractices");
 const CropYieldInput = require("../Services/Farmer/YieldEstimation/CropYieldInput");
 const EstimatedYield = require("../Services/Farmer/YieldEstimation/EstimatedYield");
-
+const {WeatherForecast} = require("../Services/Farmer/CultivationGuide/WeatherForecast");
 //commmunity
 router.get("/community/communityfeed", CommunityFeed);
 router.post("/community/communitypost", CommunityPost);
@@ -40,17 +40,18 @@ router.post("/croprecommendation/cropdata",CropData);
 router.get("/croprecommendation/recommendedcrops",RecommendedCrops);
 
 ///cultivation guide
-router.post("/cultivationguide/cropguide",CropGuide);
+router.get("/cultivationguide/cropguide",CropGuide);
 router.get("/cultivationguide/previouscultivated",PreviousCultivated);
 router.post("/cultivationguide/searchcrops",SearchCrops);
-router.get("/cultivationguide/stageofcrop",StageOfCrop);
+router.post("/cultivationguide/stageofcrop",StageOfCrop);
+router.get("/cultivation/weather-forecast", WeatherForecast);
 
 /// dashboard 
 router.post("/dashboard/weeklydata",WeeklyData);
-router.post("/dashboard/keymetrics",Keymetrics);
-router.get("/dashboard/sustainablityscore",SustainablityScore);
-router.get("/dashboard/achivements",Achivements);
-router.get("/dashboard/weeklytips",WeeklyTips);
+router.get("/keymetrics",Keymetrics);
+router.get("/sustainability-score",SustainablityScore);
+router.get("/achievements",Achivements);
+router.get("/weekly-tips",WeeklyTips);
 
 /// diesedsed
 router.post("/dieseased/inputdieseased",InputDiesesed);
