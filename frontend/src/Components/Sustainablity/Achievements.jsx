@@ -4,13 +4,12 @@ const Achievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const baseUrl = import.meta.env.VITE_HOST;
-
+  const baseUrl = import.meta.env.VITE_FARMER_API_URL ;
   useEffect(() => {
     const fetchAchievements = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${baseUrl}/user/sustainablity/achievements`, {
+        const response = await fetch(`${baseUrl}/sustainablity/achievements`, {
           method: 'GET',
           headers: { 'Content-Type': "application/json" },
         });

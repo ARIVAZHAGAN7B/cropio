@@ -4,7 +4,7 @@ const CropRecommended = ({ recommendations: propRecommendations }) => {
   const [activeSort, setActiveSort] = useState("Sort by Yield");
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(false);
-  const baseUrl = import.meta.env.VITE_HOST;
+  const baseUrl = import.meta.env.VITE_FARMER_API_URL || 'http://localhost:5000/api/farmer';
   useEffect(() => {
     if (propRecommendations) {
       setRecommendations(propRecommendations);
@@ -16,7 +16,7 @@ const CropRecommended = ({ recommendations: propRecommendations }) => {
   const fetchDefaultRecommendations = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${baseUrl}/user/sustainablity/croprecommendation/recommendedcrops`);
+      const response = await fetch(`${baseUrl}/croprecommendation/recommendedcrops`);
       const result = await response.json();
       
       if (result.success) {

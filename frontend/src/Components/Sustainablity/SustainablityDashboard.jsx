@@ -4,12 +4,12 @@ const SustainabilityDashboard = () => {
   const [sustainabilityData, setSustainabilityData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const baseUrl = import.meta.env.VITE_HOST;;
+  const baseUrl = import.meta.env.VITE_FARMER_API_URL ;
   useEffect(() => {
     const fetchSustainabilityData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${baseUrl}/user/sustainablity/sustainability-score`, {
+        const response = await fetch(`${baseUrl}/sustainablity/sustainability-score`, {
           method: 'GET',
           headers: { 'Content-Type': "application/json" },
         });

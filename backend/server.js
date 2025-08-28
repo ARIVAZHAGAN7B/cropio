@@ -10,8 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-const sustainabilityRoutes = require('./Routes/FarmerRoutes');
-app.use('/user/sustainablity', sustainabilityRoutes);
+const FarmerRoutes = require('./Routes/FarmerRoutes');
+app.use('/api/farmer', FarmerRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

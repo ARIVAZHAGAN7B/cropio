@@ -5,38 +5,7 @@ const DealerDashboard = () => {
     <div className="relative flex min-h-screen flex-col bg-[#f9fcf8] overflow-x-hidden font-[Lexend,Noto_Sans,sans-serif]">
       <div className="layout-container flex grow flex-col">
         <div className="gap-1 px-6 flex flex-1 justify-center py-5">
-          <div className="flex flex-col w-80">
-            <div className="flex h-full min-h-[700px] flex-col justify-between bg-[#f9fcf8] p-4">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col">
-                  <h1 className="text-[#121b0e] text-base font-medium">AgriTrade</h1>
-                  <p className="text-[#67974e] text-sm">Dealer Dashboard</p>
-                </div>
-                <div className="flex flex-col gap-2">
-                  {[
-                    { label: "Dashboard", icon: "House", filled: true },
-                    { label: "Orders", icon: "Truck" },
-                    { label: "Products", icon: "Package" },
-                    { label: "Customers", icon: "Users" },
-                    { label: "Settings", icon: "Gear" },
-                  ].map((item, idx) => (
-                    <div
-                      key={idx}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-xl ${
-                        item.filled ? "bg-[#ebf3e7]" : ""
-                      }`}
-                    >
-                      <div className="text-[#121b0e]">
-                        <i className={`ph-${item.icon.toLowerCase()} ph-fill text-xl`} />
-                      </div>
-                      <p className="text-[#121b0e] text-sm font-medium">{item.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
+        
           <div className="flex flex-col max-w-[960px] flex-1">
             <div className="flex flex-wrap justify-between gap-3 p-4">
               <p className="text-[#121b0e] text-[32px] font-bold min-w-72">Dashboard</p>

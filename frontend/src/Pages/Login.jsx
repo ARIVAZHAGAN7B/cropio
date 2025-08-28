@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 const LoginForm = () => {
   localStorage.setItem("loggedIn", false);
   const [user, setUser] = useState({
@@ -95,6 +96,17 @@ const LoginForm = () => {
               >
                 Log in
               </button>
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+                theme="outline"
+                size="large"
+                shape="pill"
+              />
             </div>
 
             <p className="text-[#6d8560] text-sm text-center px-4 underline pt-1 pb-3">

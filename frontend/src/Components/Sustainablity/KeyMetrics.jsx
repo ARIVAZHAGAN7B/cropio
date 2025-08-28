@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 const KeyMetrics = () => {
-  const baseUrl = import.meta.env.VITE_HOST;
+  const baseUrl = import.meta.env.VITE_FARMER_API_URL ;
   const [data, setData] = useState({
     waterusage: 0,
     chemicalinput: 0,
@@ -15,7 +15,7 @@ const KeyMetrics = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${baseUrl}/user/sustainablity/keymetrics`, {
+        const response = await fetch(`${baseUrl}/sustainablity/keymetrics`, {
           method: 'GET',
           headers: { 'Content-Type': "application/json" },
         });

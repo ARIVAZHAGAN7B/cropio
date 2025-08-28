@@ -6,7 +6,7 @@ const DiseaseInput = ({ onDetectionResult }) => {
   const [symptoms, setSymptoms] = useState('');
   const [loading, setLoading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState('');
-  const baseUrl = import.meta.env.VITE_HOST;
+  const baseUrl = import.meta.env.VITE_FARMER_API_URL ;
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -31,7 +31,7 @@ const DiseaseInput = ({ onDetectionResult }) => {
       formData.append('cropType', cropType);
       formData.append('symptoms', symptoms);
 
-      const response = await fetch(`${baseUrl}/user/sustainablity/dieseased/inputdiesease`, {
+      const response = await fetch(`${baseUrl}/dieseased/inputdiesease`, {
         method: 'POST',
         body: formData,
       });
