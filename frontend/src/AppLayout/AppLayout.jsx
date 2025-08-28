@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import FarmerRoutes from '../PublicRoutes/FarmerRoutes';
-import DealerRoutes from '../PublicRoutes/DealerRoutes';
+import React, { useState, useEffect } from "react";
+import FarmerRoutes from "../PublicRoutes/FarmerRoutes";
+import DealerRoutes from "../PublicRoutes/DealerRoutes";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
-
+import DealerNavbar from "../Components/Navbar/DealerNavbar";
 const AppLayout = () => {
   const [user, setUser] = useState(localStorage.getItem("user") || "");
 
   useEffect(() => {
-    const handleUserChange = () => {  
+    const handleUserChange = () => {
       setUser(localStorage.getItem("user") || "");
     };
     window.addEventListener("userChanged", handleUserChange);
@@ -17,19 +17,22 @@ const AppLayout = () => {
     return () => {
       window.removeEventListener("userChanged", handleUserChange);
       window.removeEventListener("storage", handleUserChange);
-    }; 
+    };
   }, []);
 
   return (
     <>
       <div className="sticky top-0 z-50 bg-white shadow-md">
-        <Navbar />
+        {user === "Farmer" && <Navbar />}
+        {user === "Dealer" && <DealerNavbar />}
       </div>
-
-      {user === "Farmer" && <FarmerRoutes />}
-      {user === "Dealer" && <DealerRoutes />}
-
-      <Footer/>
+      <div>
+        <div className="ml-100px">
+          {user === "Farmer" && <FarmerRoutes />}
+          {user === "Dealer" && <DealerRoutes />}
+        </div>
+      </div>
+      <Footer />
     </>
   );
 };

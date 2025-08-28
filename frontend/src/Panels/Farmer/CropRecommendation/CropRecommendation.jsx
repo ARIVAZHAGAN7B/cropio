@@ -13,7 +13,7 @@ const CropRecommendation = () => {
     >
       <main className="px-40 py-5 flex justify-center">
         <RecommendationForm/>
-        <CropRecommended/>
+        <CropRecommended />
       </main>
     </div>
   );

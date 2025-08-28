@@ -9,7 +9,7 @@ const RecommendationForm = ({ onRecommendationsReceived }) => {
     fertilizerAccess: '',
     marketDemandPreferences: '',
   });
-  const baseUrl = import.meta.env.VITE_HOST;
+  const baseUrl = import.meta.env.VITE_FARMER_API_URL || 'http://localhost:5000/api/farmer';
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -22,7 +22,7 @@ const RecommendationForm = ({ onRecommendationsReceived }) => {
     setError('');
     
     try {
-      const response = await fetch(`${baseUrl}/user/sustainablity/croprecommendation/cropdata`, {
+      const response = await fetch(`${baseUrl}/croprecommendation/cropdata`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -18,6 +18,7 @@ const FarmerRoutes = () => {
     <div>
       <Routes>
         <Route path='/' element={<FarmerDashboard/>}/>
+        <Route path='/login' element={<LoginForm/>}/>
         <Route path='/dieseasedetection' element={<DiseaseDetection/>}/>
         <Route path='/croprecommendation' element={<CropRecommendation/>}/>
         <Route path='/cultivationguide' element={<CultivationGuide/>}/>

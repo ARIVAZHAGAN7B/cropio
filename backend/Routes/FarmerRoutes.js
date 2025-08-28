@@ -47,11 +47,11 @@ router.post("/cultivationguide/stageofcrop",StageOfCrop);
 router.get("/cultivation/weather-forecast", WeatherForecast);
 
 /// dashboard 
-router.post("/dashboard/weeklydata",WeeklyData);
-router.get("/keymetrics",Keymetrics);
-router.get("/sustainability-score",SustainablityScore);
-router.get("/achievements",Achivements);
-router.get("/weekly-tips",WeeklyTips);
+router.post("/sustainablity/dashboard/weeklydata",WeeklyData);
+router.get("/sustainablity/keymetrics",Keymetrics);
+router.get("/sustainablity/sustainability-score",SustainablityScore);
+router.get("/sustainablity/achievements",Achivements);
+router.get("/sustainablity/weekly-tips",WeeklyTips);
 
 /// diesedsed
 router.post("/dieseased/inputdieseased",InputDiesesed);
