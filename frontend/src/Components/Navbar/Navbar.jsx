@@ -17,14 +17,7 @@ const Navbar = () => {
     }, 75); // 100 millisecond delay
   };
 
-  // eslint-disable-next-line no-unused-vars
   const [user, Setuser] = useState("Farmer");
-    useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    if (savedUser) {
-      Setuser(savedUser);
-    }
-  }, []);
 
     const handleSelectUser = (role) => {
     Setuser(role);
@@ -44,22 +37,6 @@ const Navbar = () => {
         <h2 className="text-2xl font-bold text-green-700">Cropio</h2>
       </Link>
           <div className="flex gap-3 p-4">
-      {["Farmer", "Dealer"].map((role) => {
-        const isActive = user === role;
-        return (
-          <button
-            key={role}
-            onClick={() => handleSelectUser(role)}
-            className={
-              isActive
-                ? "bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 cursor-pointer"
-                : "h-10 px-4 rounded bg-[#ebf3e7] text-[#121b0e] cursor-pointer"
-            }
-          >
-            {role}
-          </button>
-        );
-      })}
     </div>
       {/* Navigation Links */}
       <div className="flex items-center space-x-6">
