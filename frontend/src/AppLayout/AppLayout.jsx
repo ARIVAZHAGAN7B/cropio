@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import DealerNavbar from "../Components/Navbar/DealerNavbar";
 const AppLayout = () => {
-  const [user, setUser] = useState(localStorage.getItem("user") || "");
+  const [user, setUser] = useState("Farmer");
 
   useEffect(() => {
     const handleUserChange = () => {

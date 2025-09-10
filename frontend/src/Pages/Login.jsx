@@ -15,7 +15,9 @@ const LoginForm = () => {
 
   const handleClick = () => {
     localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("user","Farmer");
     window.dispatchEvent(new Event("loggedInChanged"));
+    window.dispatchEvent(new Event("handleUserChange"));
   };
   return (
     <div
